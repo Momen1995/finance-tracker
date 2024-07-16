@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const submit = document.querySelector(".submit");
 const description = document.getElementById("description");
@@ -7,27 +7,26 @@ let totalBalance = document.getElementById("total-balance");
 const selectItem = document.querySelector("select");
 const addDetail = document.querySelector(".add-detail");
 
-
-
-submit.addEventListener("click",function(){
+submit.addEventListener("click", function () {
   const descriptionInputValue = description.value;
   const amountValue = Number(amount.value);
-  let totalBalanceAdd = Number(totalBalance.textContent)
+  let totalBalanceAdd = Number(totalBalance.textContent);
 
-  if(descriptionInputValue !== ""){
-    const newDescription = document.createElement("p")
-    newDescription.textContent = descriptionInputValue;
+  if (
+    descriptionInputValue !== "" &&
+    amountValue !== "" &&
+    typeof amountValue === "number" &&
+    amountValue > 0
+  ) {
+    const newDescription = document.createElement("p");
+    newDescription.textContent = `${descriptionInputValue} : ${amountValue}`;
+    addDetail.append(newDescription);
 
-   addDetail.append(newDescription)
-  }else{
+    totalBalanceAdd += amountValue;
+    totalBalance.textContent = totalBalanceAdd;
+  } else {
     alert("Please enter a valid description and amount.");
   }
-  
- if(amountValue !== "" && typeof amountValue === "number"  && amountValue > 0){
-   totalBalanceAdd += amountValue;
-   totalBalance.textContent = totalBalanceAdd;
- }else{
-  alert("Please enter a valid description and amount.");
- }
- 
-})
+});
+
+

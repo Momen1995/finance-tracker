@@ -63,3 +63,16 @@ select{
   padding: 5px 3px;
   color: white;
 }
+
+.add-detail{
+  width: 80%;
+  margin: 25px auto 18px;
+}
+
+.add-detail p{
+  border: 2px solid teal;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+
+}
